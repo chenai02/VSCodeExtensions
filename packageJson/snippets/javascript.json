@@ -1,0 +1,10 @@
+{
+    "console": {
+      "prefix": "csl",
+      "body": [
+        "console.log();"
+      ],
+      "description": "console"
+    }
+  }
+  

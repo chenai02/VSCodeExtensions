@@ -1,0 +1,106 @@
+{
+  "name": "package.json",
+  "displayName": "package.json",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "1.89.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "packageJson-guest",
+        "title": "hello guest"
+      },
+      {
+        "command": "packageJson-son",
+        "title": "hello son"
+      }
+    ],
+    "configuration": {
+      "title": "packageJson",
+      "properties": {
+        "test-packageJson.chenai02": {
+          "type": "string",
+          "default": "Hello guest",
+          "description": "Hello text"
+        },
+        "test-packageJson.showHelloWorld": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show hello world"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "packageJson-son",
+        "key": "ctrl+alt+h",
+        "mac": "cmd+alt+h",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "packageJson-son",
+          "when": "editorFocus",
+          "group": "navigation@1"
+        },
+        {
+          "command": "packageJson-guest",
+          "when": "editorFocus",
+          "group": "navigation@2"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "packageJson-son",
+          "when": "editorFocus && resourceLangId  == javascript",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "packageJson-son",
+          "when": "resourceLangId  == javascript",
+          "group": "navigation"
+        }
+      ]
+    },
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/html.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.54.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
